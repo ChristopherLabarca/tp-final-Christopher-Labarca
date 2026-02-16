@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VetCare - Dashboard Veterinario</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2e93dc",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#121a20",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-size: 20px; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#121517]">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-[#dce1e5] bg-white px-4 md:px-10 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined text-2xl">pets</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-[#121517]">VetCare</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex h-10 w-10 items-center justify-center rounded-full bg-[#f0f3f4] text-[#121517] hover:bg-primary/10 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-[1px] bg-[#dce1e5] mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-semibold text-[#121517]">Dr. Alejandro Ruiz</p>
+<p class="text-xs text-[#657886]">Administrador</p>
+</div>
+<div class="h-10 w-10 rounded-full bg-cover bg-center border-2 border-primary/20" data-alt="Profile picture of a male veterinarian" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVmIPwtj4YA-lBqMS_Ww4rgCvF1TFazLZXWezJytNMF-JsCtLIBYuvmI9VSe7bDCQzQNN2pWryq8B92Si5o_QJpNwn-ctfkRbZEDx3zP_M9bZ4PRHNjiesZcxfFavDYgBN3lyJ5aHwAEk4BL_X-qaBZl9nHx071bF0Oa4N3cDIa5ufO7WpJ3Tedf03lh8jCT4_MIZDe7-UQyOm1OAhOsLgXIvj682GS7EmNlk4SN-hQ603Y9SrPRraEsSNPQPRWLbt6nnfY7QF-r8')"></div>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-7xl mx-auto w-full p-4 md:p-8">
+<!-- Tabbed Navigation -->
+<div class="mb-8 border-b border-[#dce1e5]">
+<nav class="flex gap-8">
+<a class="flex items-center gap-2 border-b-2 border-primary pb-4 text-sm font-bold text-primary" href="#dueños">
+<span class="material-symbols-outlined">person</span>
+                        Dueños
+                    </a>
+<a class="flex items-center gap-2 border-b-2 border-transparent pb-4 text-sm font-medium text-[#657886] hover:text-primary hover:border-primary/50 transition-all" href="#mascotas">
+<span class="material-symbols-outlined">cruelty_free</span>
+                        Mascotas
+                    </a>
+<a class="flex items-center gap-2 border-b-2 border-transparent pb-4 text-sm font-medium text-[#657886] hover:text-primary hover:border-primary/50 transition-all" href="#historial">
+<span class="material-symbols-outlined">clinical_notes</span>
+                        Historial Clínico
+                    </a>
+</nav>
+</div>
+<!-- Section 1: Dueños -->
+<div class="space-y-8" id="section-dueños">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<h2 class="text-2xl font-bold text-[#121517]">Gestión de Dueños</h2>
+<p class="text-[#657886] text-sm">Administre la información de contacto de los propietarios.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Form Card -->
+<div class="lg:col-span-1">
+<div class="rounded-xl bg-white p-6 shadow-sm border border-[#dce1e5]">
+<h3 class="mb-6 text-lg font-bold text-[#121517]">Cargar Datos de Dueño</h3>
+<form class="space-y-4">
+<div>
+<label class="mb-1 block text-sm font-medium text-[#121517]">Nombre Completo</label>
+<input class="w-full rounded-lg border-[#dce1e5] bg-[#f8fafc] p-3 text-sm focus:border-primary focus:ring-primary" placeholder="Ej. Juan Pérez" type="text"/>
+</div>
+<div>
+<label class="mb-1 block text-sm font-medium text-[#121517]">Teléfono</label>
+<input class="w-full rounded-lg border-[#dce1e5] bg-[#f8fafc] p-3 text-sm focus:border-primary focus:ring-primary" placeholder="+54 11 1234-5678" type="tel"/>
+</div>
+<div>
+<label class="mb-1 block text-sm font-medium text-[#121517]">Email</label>
+<input class="w-full rounded-lg border-[#dce1e5] bg-[#f8fafc] p-3 text-sm focus:border-primary focus:ring-primary" placeholder="juan.perez@email.com" type="email"/>
+</div>
+<button class="mt-4 w-full rounded-xl bg-primary py-3 text-sm font-bold text-white hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20" type="button">
+                                    Guardar Dueño
+                                </button>
+</form>
+</div>
+</div>
+<!-- Table Card -->
+<div class="lg:col-span-2">
+<div class="overflow-hidden rounded-xl bg-white shadow-sm border border-[#dce1e5]">
+<div class="flex items-center justify-between border-b border-[#f0f3f4] bg-white px-6 py-4">
+<h3 class="text-lg font-bold text-[#121517]">Info de Dueños</h3>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#657886]">search</span>
+<input class="rounded-lg border-[#dce1e5] bg-[#f8fafc] py-2 pl-10 pr-4 text-sm focus:border-primary focus:ring-primary" placeholder="Buscar dueño..." type="text"/>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-[#f8fafc] text-xs font-semibold uppercase tracking-wider text-[#657886]">
+<th class="px-6 py-4">Nombre</th>
+<th class="px-6 py-4">Contacto</th>
+<th class="px-6 py-4 text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#f0f3f4]">
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">JP</div>
+<span class="text-sm font-medium text-[#121517]">Juan Pérez</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm text-[#121517]">+54 11 555-0102</div>
+<div class="text-xs text-[#657886]">juanp@gmail.com</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1 text-[#657886] hover:text-primary transition-colors"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-1 text-[#657886] hover:text-red-500 transition-colors"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">MG</div>
+<span class="text-sm font-medium text-[#121517]">María García</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm text-[#121517]">+54 11 555-0199</div>
+<div class="text-xs text-[#657886]">mgarcia@outlook.com</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1 text-[#657886] hover:text-primary transition-colors"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-1 text-[#657886] hover:text-red-500 transition-colors"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Mascotas -->
+<div class="mt-16 space-y-8" id="section-mascotas">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<h2 class="text-2xl font-bold text-[#121517]">Gestión de Mascotas</h2>
+<p class="text-[#657886] text-sm">Registro de pacientes y sus vínculos familiares.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Form Card -->
+<div class="lg:col-span-1">
+<div class="rounded-xl bg-white p-6 shadow-sm border border-[#dce1e5]">
+<h3 class="mb-6 text-lg font-bold text-[#121517]">Cargar Datos de Mascota</h3>
+<form class="space-y-4">
+<div>
+<label class="mb-1 block text-sm font-medium text-[#121517]">Nombre de Mascota</label>
+<input class="w-full rounded-lg border-[#dce1e5] bg-[#f8fafc] p-3 text-sm focus:border-primary focus:ring-primary" placeholder="Ej. Toby" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="mb-1 block text-sm font-medium text-[#121517]">Especie</label>
+<select class="w-full rounded-lg border-[#dce1e5] bg-[#f8fafc] p-3 text-sm focus:border-primary focus:ring-primary">
+<option>Canino</option>
+<option>Felino</option>
+<option>Ave</option>
+<option>Exótico</option>
+</select>
+</div>
+<div>
+<label class="mb-1 block text-sm font-medium text-[#121517]">Raza</label>
+<input class="w-full rounded-lg border-[#dce1e5] bg-[#f8fafc] p-3 text-sm focus:border-primary focus:ring-primary" placeholder="Ej. Beagle" type="text"/>
+</div>
+</div>
+<div>
+<label class="mb-1 block text-sm font-medium text-[#121517]">Dueño</label>
+<select class="w-full rounded-lg border-[#dce1e5] bg-[#f8fafc] p-3 text-sm focus:border-primary focus:ring-primary">
+<option>Seleccionar dueño...</option>
+<option>Juan Pérez</option>
+<option>María García</option>
+</select>
+</div>
+<button class="mt-4 w-full rounded-xl bg-primary py-3 text-sm font-bold text-white hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20" type="button">
+                                    Registrar Mascota
+                                </button>
+</form>
+</div>
+</div>
+<!-- Table Card -->
+<div class="lg:col-span-2">
+<div class="overflow-hidden rounded-xl bg-white shadow-sm border border-[#dce1e5]">
+<div class="flex items-center justify-between border-b border-[#f0f3f4] bg-white px-6 py-4">
+<h3 class="text-lg font-bold text-[#121517]">Info de Mascotas</h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-[#f8fafc] text-xs font-semibold uppercase tracking-wider text-[#657886]">
+<th class="px-6 py-4">Mascota</th>
+<th class="px-6 py-4">Especie/Raza</th>
+<th class="px-6 py-4">Dueño</th>
+<th class="px-6 py-4 text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#f0f3f4]">
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-lg bg-cover bg-center" data-alt="Small brown dog sitting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA0DFdmrdpwkKDyQUvss775O4wrZzTdSByObneTF21xSBMqsKBckK8e0NhOKJDEqhLmzkQ8vGtcZYa-0agLrYiDORP7ceCl_1VIskDcPBrznV17eDIMew3dJ-5Ci8O28Ub4-cOJ89SPkZTbTQE2ifFkxR3-JNCyo3dbJkJrjVDfDC8V4lM3lnr65yzPznjo4cHEf7g7JiNNPXIBptpDANmNkMEPa5Hup98Rg5L5AH9worgfub0Z3LLVmVm8FR4xcP5Yiv-3WgUoiIQ')"></div>
+<span class="text-sm font-bold text-[#121517]">Toby</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="rounded-full bg-blue-100 px-2 py-1 text-[10px] font-bold text-blue-600 uppercase">Canino</span>
+<div class="mt-1 text-sm text-[#657886]">Beagle</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm font-medium text-primary">Juan Pérez</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1 text-[#657886] hover:text-primary transition-colors"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-1 text-[#657886] hover:text-red-500 transition-colors"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-lg bg-cover bg-center" data-alt="Close up of a black cat face" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCcHlNTsL7g5fIc-bRuQctwnnnSCp5m5uG_3FuPEM3M5ZtrnJs3_Cy9Cbp3N2S09zJ9pdCAZpyxRNU3-BfT_8GHofrR7aqsSIa-_3jagC230T-_c8SMH_AAwB06IhZifNq9Oos81mNDAeaadhfKCbRc3JoDOKs332pnELUI0KOvfVaHyf5M0VguQVHZbcwh0g3lkGtFJM2s4DmdO8l-t_SLUgCHSHKXaGZ48F3nFa9gFvdidfoEFlub50Rqt0Oci_mU3-QWN5eWyFY')"></div>
+<span class="text-sm font-bold text-[#121517]">Luna</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="rounded-full bg-teal-100 px-2 py-1 text-[10px] font-bold text-teal-600 uppercase">Felino</span>
+<div class="mt-1 text-sm text-[#657886]">Siamés</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm font-medium text-primary">María García</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1 text-[#657886] hover:text-primary transition-colors"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-1 text-[#657886] hover:text-red-500 transition-colors"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Historial Clínico -->
+<div class="mt-16 space-y-8" id="section-historial">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<h2 class="text-2xl font-bold text-[#121517]">Historial Clínico</h2>
+<p class="text-[#657886] text-sm">Registro detallado de consultas, diagnósticos y tratamientos.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+<!-- Form Card (Wider for medical info) -->
+<div class="lg:col-span-1">
+<div class="rounded-xl bg-white p-6 shadow-sm border border-[#dce1e5]">
+<h3 class="mb-6 text-lg font-bold text-[#121517]">Cargar Historial</h3>
+<form class="space-y-4">
+<div>
+<label class="mb-1 block text-sm font-medium text-[#121517]">Mascota</label>
+<select class="w-full rounded-lg border-[#dce1e5] bg-[#f8fafc] p-3 text-sm focus:border-primary focus:ring-primary">
+<option>Seleccionar paciente...</option>
+<option>Toby (Perro)</option>
+<option>Luna (Gato)</option>
+</select>
+</div>
+<div>
+<label class="mb-1 block text-sm font-medium text-[#121517]">Fecha</label>
+<input class="w-full rounded-lg border-[#dce1e5] bg-[#f8fafc] p-3 text-sm focus:border-primary focus:ring-primary" type="date"/>
+</div>
+<div>
+<label class="mb-1 block text-sm font-medium text-[#121517]">Diagnóstico</label>
+<textarea class="w-full rounded-lg border-[#dce1e5] bg-[#f8fafc] p-3 text-sm focus:border-primary focus:ring-primary" placeholder="Describa el diagnóstico..." rows="3"></textarea>
+</div>
+<div>
+<label class="mb-1 block text-sm font-medium text-[#121517]">Tratamiento</label>
+<textarea class="w-full rounded-lg border-[#dce1e5] bg-[#f8fafc] p-3 text-sm focus:border-primary focus:ring-primary" placeholder="Medicamentos y pasos a seguir..." rows="3"></textarea>
+</div>
+<button class="mt-4 w-full rounded-xl bg-primary py-3 text-sm font-bold text-white hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20" type="button">
+                                    Guardar Historial
+                                </button>
+</form>
+</div>
+</div>
+<!-- Table Card -->
+<div class="lg:col-span-3">
+<div class="overflow-hidden rounded-xl bg-white shadow-sm border border-[#dce1e5]">
+<div class="flex items-center justify-between border-b border-[#f0f3f4] bg-white px-6 py-4">
+<h3 class="text-lg font-bold text-[#121517]">Info de Historiales</h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-[#f8fafc] text-xs font-semibold uppercase tracking-wider text-[#657886]">
+<th class="px-6 py-4">Fecha</th>
+<th class="px-6 py-4">Mascota</th>
+<th class="px-6 py-4">Diagnóstico</th>
+<th class="px-6 py-4">Tratamiento</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#f0f3f4]">
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm font-medium text-[#121517]">12 Oct, 2023</div>
+<div class="text-xs text-[#657886]">10:30 AM</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm font-bold text-primary">Toby</div>
+<div class="text-xs text-[#657886]">Canino</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm text-[#121517] line-clamp-2 max-w-xs">Gastroenteritis leve por ingesta de alimento no apto.</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm text-[#121517] line-clamp-2 max-w-xs">Dieta blanda por 48hs y administración de probióticos.</div>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm font-medium text-[#121517]">08 Oct, 2023</div>
+<div class="text-xs text-[#657886]">16:45 PM</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm font-bold text-primary">Luna</div>
+<div class="text-xs text-[#657886]">Felino</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm text-[#121517] line-clamp-2 max-w-xs">Control anual y vacunación polivalente.</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm text-[#121517] line-clamp-2 max-w-xs">Refuerzo de rabia aplicado. Próximo control en 1 año.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Simple Footer -->
+<footer class="mt-12 bg-white border-t border-[#dce1e5] px-10 py-6">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-sm text-[#657886]">© 2023 VetCare Management System. Todos los derechos reservados.</p>
+<div class="flex gap-6">
+<a class="text-sm font-medium text-[#657886] hover:text-primary" href="#">Soporte</a>
+<a class="text-sm font-medium text-[#657886] hover:text-primary" href="#">Privacidad</a>
+<a class="text-sm font-medium text-[#657886] hover:text-primary" href="#">Términos</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "nombre": "Toby",
+    "especie": "Canino",
+    "raza": "Beagle",
+    "peso": "12kg",
+    "fecha_nacimiento": "2018-05-20",
+    "cliente_id": 1,
+    "imagen_url": "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&q=80&w=150"
+  },
+  {
+    "id": 2,
+    "nombre": "Luna",
+    "especie": "Felino",
+    "raza": "Siamés",
+    "peso": "4kg",
+    "fecha_nacimiento": "2020-08-15",
+    "cliente_id": 2,
+    "imagen_url": "https://images.unsplash.com/photo-1513245543132-31f507417b26?auto=format&fit=crop&q=80&w=150"
+  },
+  {
+    "id": 3,
+    "nombre": "Max",
+    "especie": "Canino",
+    "raza": "Ovejero Alemán",
+    "peso": "35kg",
+    "fecha_nacimiento": "2019-02-10",
+    "cliente_id": 3,
+    "imagen_url": "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&q=80&w=150"
+  },
+  {
+    "id": 4,
+    "nombre": "Mish",
+    "especie": "Felino",
+    "raza": "Persa",
+    "peso": "5kg",
+    "fecha_nacimiento": "2021-11-05",
+    "cliente_id": 4,
+    "imagen_url": "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?auto=format&fit=crop&q=80&w=150"
+  },
+  {
+    "id": 5,
+    "nombre": "Rocky",
+    "especie": "Canino",
+    "raza": "Bulldog Francés",
+    "peso": "11kg",
+    "fecha_nacimiento": "2022-01-30",
+    "cliente_id": 5,
+    "imagen_url": "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=150"
+  },
+  {
+    "id": 6,
+    "nombre": "Lola",
+    "especie": "Canino",
+    "raza": "Golden Retriever",
+    "peso": "28kg",
+    "fecha_nacimiento": "2017-07-12",
+    "cliente_id": 6,
+    "imagen_url": "https://images.unsplash.com/photo-1633722715463-d30f4f325e24?auto=format&fit=crop&q=80&w=150"
+  },
+  {
+    "id": 7,
+    "nombre": "Simba",
+    "especie": "Felino",
+    "raza": "Común Europeo",
+    "peso": "4.5kg",
+    "fecha_nacimiento": "2019-09-22",
+    "cliente_id": 7,
+    "imagen_url": "https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&q=80&w=150"
+  },
+  {
+    "id": 8,
+    "nombre": "Coco",
+    "especie": "Ave",
+    "raza": "Loro",
+    "peso": "0.5kg",
+    "fecha_nacimiento": "2020-03-15",
+    "cliente_id": 8,
+    "imagen_url": "https://images.unsplash.com/photo-1552728089-57bdde30ebd1?auto=format&fit=crop&q=80&w=150"
+  },
+  {
+    "id": 9,
+    "nombre": "Bella",
+    "especie": "Canino",
+    "raza": "Poodle",
+    "peso": "6kg",
+    "fecha_nacimiento": "2021-06-18",
+    "cliente_id": 9,
+    "imagen_url": "https://images.unsplash.com/photo-1516934024742-b461fba47600?auto=format&fit=crop&q=80&w=150"
+  },
+  {
+    "id": 10,
+    "nombre": "Nemo",
+    "especie": "Exótico",
+    "raza": "Pez Payaso",
+    "peso": "0.1kg",
+    "fecha_nacimiento": "2023-01-01",
+    "cliente_id": 10,
+    "imagen_url": "https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&q=80&w=150"
+  }
+]

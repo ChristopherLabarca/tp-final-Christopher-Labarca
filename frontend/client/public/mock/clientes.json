@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "nombre": "Juan Pérez",
+    "telefono": "+54 11 555-0102",
+    "email": "juan.perez@email.com",
+    "direccion": "Av. Libertador 1234, CABA"
+  },
+  {
+    "id": 2,
+    "nombre": "María García",
+    "telefono": "+54 11 555-0199",
+    "email": "mgarcia@outlook.com",
+    "direccion": "Calle Falsa 123, CABA"
+  },
+  {
+    "id": 3,
+    "nombre": "Carlos López",
+    "telefono": "+54 11 555-0205",
+    "email": "carlos.lopez@gmail.com",
+    "direccion": "San Martín 456, CABA"
+  },
+  {
+    "id": 4,
+    "nombre": "Ana Rodríguez",
+    "telefono": "+54 11 555-0310",
+    "email": "ana.rod@hotmail.com",
+    "direccion": "Belgrano 789, CABA"
+  },
+  {
+    "id": 5,
+    "nombre": "Pedro Sánchez",
+    "telefono": "+54 11 555-0422",
+    "email": "pedro.sanchez@yahoo.com",
+    "direccion": "Rivadavia 321, CABA"
+  },
+  {
+    "id": 6,
+    "nombre": "Laura Martínez",
+    "telefono": "+54 11 555-0533",
+    "email": "laura.m@live.com",
+    "direccion": "Corrientes 654, CABA"
+  },
+  {
+    "id": 7,
+    "nombre": "Jorge Gómez",
+    "telefono": "+54 11 555-0644",
+    "email": "jorge.gomez@gmail.com",
+    "direccion": "Santa Fe 987, CABA"
+  },
+  {
+    "id": 8,
+    "nombre": "Sofía Díaz",
+    "telefono": "+54 11 555-0755",
+    "email": "sofia.d@outlook.com",
+    "direccion": "Córdoba 159, CABA"
+  },
+  {
+    "id": 9,
+    "nombre": "Miguel Torres",
+    "telefono": "+54 11 555-0866",
+    "email": "miguel.torres@gmail.com",
+    "direccion": "Callao 753, CABA"
+  },
+  {
+    "id": 10,
+    "nombre": "Lucía Fernández",
+    "telefono": "+54 11 555-0977",
+    "email": "lucia.fer@hotmail.com",
+    "direccion": "Pueyrredón 852, CABA"
+  }
+]
