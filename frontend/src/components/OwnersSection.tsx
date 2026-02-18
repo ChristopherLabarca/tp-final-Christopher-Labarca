@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { Owner } from '../types';
 import { ownerService } from '../services/api';
-import { imageService } from '../services/imageService';
 
 export default function OwnersSection() {
   const [owners, setOwners] = useState<Owner[]>([]);
@@ -260,17 +259,9 @@ export default function OwnersSection() {
                       <tr key={owner._id} className="hover:bg-primary/5 transition-colors group">
                         <td className="px-6 py-4">
                           <div className="flex items-center gap-3">
-                            {imageService.getImageForCategory(`owner-${owner._id}`) ? (
-                              <img
-                                src={imageService.getImageForCategory(`owner-${owner._id}`) || ''}
-                                alt={owner.nombre}
-                                className="h-8 w-8 rounded-full object-cover border border-[#dce1e5]"
-                              />
-                            ) : (
-                              <div className="h-8 w-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">
-                                {owner.nombre.split(' ').map(n => n[0]).join('').substring(0, 2)}
-                              </div>
-                            )}
+                            <div className="h-8 w-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">
+                              {owner.nombre.split(' ').map(n => n[0]).join('').substring(0, 2)}
+                            </div>
                             <span className="text-sm font-medium text-[#121517]">{owner.nombre}</span>
                           </div>
                         </td>

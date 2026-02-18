@@ -6,7 +6,7 @@
 
 PetCare es un sistema veterinario que permite:
 - 👤 **Gestionar usuarios** con diferentes roles (Admin, Veterinario, Recepcionista)
-- 🐾 **Registrar mascotas** con información sobre raza, especie e imágenes automáticas
+ - 🐾 **Registrar mascotas** con información sobre raza y especie
 - 👥 **Administrar dueños** de mascotas
 - 📋 **Crear historiales médicos** con diagnósticos, tratamientos y horarios
 
@@ -15,6 +15,7 @@ PetCare es un sistema veterinario que permite:
 - ✅ **Autenticación JWT segura** (tokens de 24 horas)
 - ✅ **Control de acceso por roles** (ADMIN, VETERINARIO, RECEPCIONISTA)
 - ✅ **Imágenes automáticas de razas** (integración con APIs de perros y gatos)
+ - ✅ (Funcionalidad de imágenes eliminada)
 - ✅ **Validaciones completas** de datos entrada
 - ✅ **Manejo centralizado de errores** 
 - ✅ **Base de datos MongoDB** con Mongoose
@@ -190,7 +191,7 @@ Content-Type: application/json
   "peso": 25.5,
   "dueno_id": "ID_DEL_DUENO"
 }
-# Nota: La imagen se genera automáticamente según la raza
+# Nota: La generación automática de imágenes fue removida del proyecto
 
 # ACTUALIZAR mascota
 PUT http://localhost:3000/api/pet/:id
@@ -310,10 +311,8 @@ PORT=3001 npm run dev
 - Verifica que incluyas el header `Authorization: Bearer TOKEN`
 - Asegúrate que el token no haya expirado (válido por 24 horas)
 
-### Las imágenes de razas no cargan
-- Verifica conexión a internet
-- dog.ceo y thecatapi.com deben estar accesibles
-- Las imágenes tienen reintentos automáticos
+### Notas sobre imágenes
+La funcionalidad de imágenes fue retirada del proyecto; ya no depende de APIs externas.
 
 ## 📄 Documentación Adicional
 

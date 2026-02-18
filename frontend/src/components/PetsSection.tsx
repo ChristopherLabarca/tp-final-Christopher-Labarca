@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { ownerService, petService } from '../services/api';
-import { imageService } from '../services/imageService';
 import { useToast } from './ToastProvider';
 
 interface IPetForm {
@@ -44,9 +43,6 @@ export default function PetsSection() {
       setClients(ownersData || []);
       setPets(petsData || []);
       console.log('Pets data:', petsData);
-      if (petsData && petsData.length > 0) {
-        console.log('First pet imagen_url:', petsData[0].imagen_url);
-      }
     } catch (err) {
       console.error('Error fetching data:', err);
       toast.addToast('Error cargando mascotas y propietarios', 'error');
@@ -291,13 +287,9 @@ export default function PetsSection() {
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-4">
                           <img 
-                            src={imageService.getImageForCategory(`pet-${pet._id}`) || pet.imagen_url || 'https://via.placeholder.com/200?text=Mascota'}
+                            src={'https://via.placeholder.com/200?text=Mascota'}
                             alt={pet.nombre}
                             className="h-16 w-16 rounded-lg object-cover shrink-0 bg-gray-200"
-                            onError={(e: any) => {
-                              console.log('Image failed to load, using fallback');
-                              e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"%3E%3Crect fill="%23e5e7eb" width="200" height="200"/%3E%3Ctext x="50%25" y="50%25" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="%23657886"%3EMascota%3C/text%3E%3C/svg%3E';
-                            }}
                           />
                           <span className="text-sm font-bold text-[#121517]">{pet.nombre}</span>
                         </div>

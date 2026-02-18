@@ -92,7 +92,6 @@ const startServer = async () => {
 
   app.listen(PORT, () => {
     console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
-    console.log(`📝 Frontend: http://localhost:5173`);
     console.log(`📚 Lee API_INTEGRATION_GUIDE.md para documentación`);
   });
 };
@@ -102,8 +101,3 @@ startServer().catch(err => {
   process.exit(1);
 });
 
-// Manejo de señales para shutdown limpio
-process.on('SIGINT', () => {
-  console.log('\n\n👋 Deteniendo servidor...');
-  process.exit(0);
-});

@@ -10,18 +10,18 @@
 
 PetCare es una plataforma completa diseñada para simplificar la gestión de clínicas veterinarias:
 
-- 🐾 **Gestión de Mascotas** - Registro con información y fotos automáticas por raza
+- 🐾 **Gestión de Mascotas** - Registro con información
 - 👤 **Gestión de Dueños** - Control de información de propietarios
 - 👨‍⚕️ **Gestión de Personal** - Veterinarios y recepcionistas
 - 📋 **Historiales Médicos** - Registro de diagnósticos y tratamientos
-- 🖼️ **Gestión de Imágenes** - Organiza y guarda fotos de mascotas y personal
+- ✅ (Funcionalidad de imágenes removida del proyecto)
 - 🔐 **Control de Acceso** - Roles y permisos (Admin, Veterinario, Recepcionista)
 
 ## 🎯 Características Principales
 
 ✅ **Interfaz moderna y responsive** - Funciona en PC, tablet y móvil  
 ✅ **Autenticación JWT segura** - Tokens de 24 horas  
-✅ **Imágenes automáticas de razas** - Integración con APIs de perros y gatos  
+✅ **Funcionalidad de imágenes removida del proyecto**
 ✅ **Base de datos MongoDB** - Persistencia confiable  
 ✅ **TypeScript completo** - Código seguro y mantenible  
 ✅ **Validaciones de datos** - Integridad garantizada  
@@ -37,11 +37,11 @@ PetCare/
 ├── 🔵 Backend (Node.js + Express)
 │   ├── API REST con autenticación
 │   ├── Gestión de base de datos MongoDB
-│   └── Imágenes automáticas de razas
+│   └── (Funcionalidad de imágenes removida)
 │
 ├── 🟦 Frontend (React + TypeScript)
 │   ├── Interfaz web moderna
-│   ├── Gestión de imágenes locales
+│   ├── (Funcionalidad de imágenes eliminada)
 │   └── Sistema de notificaciones
 │
 └── 📦 Base de Datos (MongoDB Atlas)
@@ -207,7 +207,7 @@ npm start
 2. **Gestionar Mascotas** → Ver, crear, editar y eliminar
 3. **Gestionar Dueños** → Control completo de propietarios
 4. **Gestionar Personnel** → Veterinarios y recepcionistas
-5. **Imágenes** → Configración → Imagen → Carga y organiza fotos
+5. **Funcionalidad de imágenes eliminada**
 6. **Historiales** → Ver registros médicos de mascotas
 
 ### Para Veterinarios
@@ -271,7 +271,7 @@ PetCare/
 ├── backend/
 │   ├── src/
 │   │   ├── controllers/      # Lógica de negocio
-│   │   ├── services/         # Servicios (incluye imágenes de razas)
+│   │   ├── services/         # Servicios
 │   │   ├── models/           # Esquemas MongoDB
 │   │   ├── routes/           # Definición de rutas
 │   │   ├── middlewares/      # Autenticación y validación
@@ -387,7 +387,7 @@ Este es un proyecto educativo desarrollado para UTN. Las contribuciones son bien
 ### v1.0.0 (Actual)
 - ✅ CRUD completo de mascotas, dueños, historiales
 - ✅ Autenticación JWT con roles
-- ✅ Gestión de imágenes automáticas y personalizadas
+- ✅ (Gestión de imágenes eliminada)
 - ✅ Interfaz responsive
 - ✅ TypeScript en todo el código
 - ✅ Documentación completa

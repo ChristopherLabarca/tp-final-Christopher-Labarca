@@ -89,8 +89,3 @@ startServer().catch(err => {
     console.error('Error fatal al iniciar servidor:', err);
     process.exit(1);
 });
-// Manejo de señales para shutdown limpio
-process.on('SIGINT', () => {
-    console.log('\n\n👋 Deteniendo servidor...');
-    process.exit(0);
-});

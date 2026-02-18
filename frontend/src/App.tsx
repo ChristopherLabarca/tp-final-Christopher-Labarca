@@ -4,7 +4,6 @@ import Header from './components/Header';
 import Login from './components/Login';
 import Settings from './components/Settings';
 import AdminUsers from './components/AdminUsers';
-import CategoryImageManagement from './components/CategoryImageManagement';
 import { ToastProvider } from './components/ToastProvider';
 import OwnersSection from './components/OwnersSection';
 import PetsSection from './components/PetsSection';
@@ -150,19 +149,7 @@ function App() {
               <span className="material-symbols-outlined">inventory_2</span>
               Stock (Backend)
             </button>
-            {currentUser?.role === 'admin' && (
-              <button 
-                onClick={() => setActiveTab('imágenes')}
-                className={`flex items-center gap-2 border-b-2 pb-4 text-sm font-medium transition-all ${
-                  activeTab === 'imágenes' 
-                    ? 'border-primary text-primary font-bold' 
-                    : 'border-transparent text-[#657886] hover:text-primary hover:border-primary/50'
-                }`}
-              >
-                <span className="material-symbols-outlined">image</span>
-                Imágenes
-              </button>
-            )}
+            
             {currentUser?.role === 'admin' && (
               <button 
                 onClick={() => setActiveTab('usuarios')}
@@ -184,9 +171,7 @@ function App() {
         {activeTab === 'mascotas' && <PetsSection />}
         {activeTab === 'historial' && <HistorySection />}
         {activeTab === 'stock' && <StockSection />}
-        {activeTab === 'imágenes' && currentUser?.role === 'admin' && token && (
-          <CategoryImageManagement token={token} />
-        )}
+        
         {activeTab === 'usuarios' && currentUser?.role === 'admin' && token && (
           <AdminUsers token={token} />
         )}

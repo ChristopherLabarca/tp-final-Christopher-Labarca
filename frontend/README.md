@@ -9,7 +9,6 @@ PetCare es un sistema completo de gestión veterinaria donde puedes:
 - 👤 **Administrar dueños** de mascotas
 - 👨‍⚕️ **Gestionar veterinarios y recepcionistas**
 - 📋 **Crear historiales médicos** con diagnósticos y tratamientos
-- 🖼️ **Subir y organizar imágenes** de todas las categorías
 - 🔐 **Control de acceso** basado en roles (Admin, Veterinario, Recepcionista)
 
 ## 🛠️ Tecnologías
@@ -122,7 +121,7 @@ Una vez logueado, verás la página principal con 4 secciones:
    - Ver lista de todas las mascotas registradas
    - **Crear mascota:** Click en "➕ Nueva Mascota"
      - Nombre, especie, raza, edad, peso y dueño
-     - La imagen se genera automáticamente según la raza
+    - (Generación automática de imagen eliminada)
    - **Editar:** Haz click en "✏️ Editar"
    - **Eliminar:** Haz click en "🗑️ Eliminar"
 
@@ -150,27 +149,15 @@ Haz click en "📋 Historial Clínico" en la navegación:
   - Selecciona mascota, fecha, hora (HH:MM), diagnóstico y tratamiento
 - **Ver detalles:** Haz click en la mascota para ver su historial completo
 
-### 🖼️ 4. Gestión de Imágenes (Solo Admin)
+### 🖼️ 4. Gestión de Imágenes (eliminada)
 
-Haz click en "⚙️ Configuración" → Elige "Imagen" en el menú desplegable:
-
-- **Selecciona categoría:** Mascotas, Dueños, Veterinarios o Recepcionistas
-- **Ver items:** Se mostrarán todos los items en una tabla
-- **Subir imagen:** 
-  - Click en "📁 Cambiar" para una mascota/dueño
-  - Selecciona una imagen de tu PC o móvil (JPG, PNG, WebP, GIF)
-  - La imagen se guarda automáticamente
-- **Ver imagen:** Las imágenes aparecen como miniaturas en la tabla
-- **Eliminar imagen:** Click en "🗑️ Eliminar"
-
-**Las imágenes se guardan localmente en tu navegador** y persisten entre sesiones.
+La gestión de imágenes fue retirada del proyecto. Las referencias a subida/almacenamiento local ya no están disponibles.
 
 ### ⚙️ 5. Configuración
 
 Haz click en "⚙️ Configuración" para ver opciones:
 
 - **Mis Datos:** Ver tu perfil actual
-- **Imagen:** Gestionar imágenes (solo Admin)
 - **Cerrar Sesión:** Salir de la aplicación
 
 ## 💡 Características Destacadas
@@ -184,7 +171,6 @@ Haz click en "⚙️ Configuración" para ver opciones:
 ### 📱 Responsivo
 - Funciona perfectamente en PC, tablet y móvil
 - Diseño adaptativo a cualquier pantalla
-- Upload de imágenes desde teléfono
 
 ### 🔔 Notificaciones
 - Mensajes de éxito (verde) cuando guardas datos
@@ -192,9 +178,7 @@ Haz click en "⚙️ Configuración" para ver opciones:
 - Notificaciones automáticas al crear/actualizar
 
 ### 🖼️ Imágenes Automáticas
-- Cuando creas una mascota, obtiene automáticamente una foto según su raza
-- Puedes cambiar la imagen manualmente
-- Las imágenes personalizadas se guardan en tu navegador
+La funcionalidad de imágenes automáticas y almacenamiento local fue retirada.
 
 ### 🔒 Seguridad
 - Login con autenticación JWT
@@ -218,10 +202,8 @@ npm install
 - Los emails son case-sensitive (admin@example.com ≠ Admin@example.com)
 - Asegúrate de tener espacios o mayúsculas
 
-### Las imágenes no cargan
-- Recarga la página (F5)
-- Limpia el caché del navegador (Ctrl+Shift+Suprimir)
-- Verifica que tengas conexión a internet (para imágenes de razas)
+### Las imágenes
+La gestión y carga de imágenes fue retirada del proyecto; ya no es necesario revisar este apartado.
 
 ### Error: "Unauthorized" o "Token invalid"
 - Tu sesión expiró (válida por 24 horas)
@@ -244,13 +226,12 @@ frontend/
 │   │   ├── PetsSection.tsx  # Gestión de mascotas
 │   │   ├── OwnersSection.tsx # Gestión de dueños
 │   │   ├── HistorySection.tsx # Historiales médicos
-│   │   ├── CategoryImageManagement.tsx # Gestor de imágenes
 │   │   ├── Login.tsx        # Pantalla de login
 │   │   ├── Settings.tsx     # Configuración
 │   │   └── ToastProvider.tsx # Sistema de notificaciones
 │   ├── services/            # Lógica de API
 │   │   ├── api.ts           # Cliente HTTP con autenticación
-│   │   └── imageService.ts  # Gestión de imágenes locales
+│   │   └── (imageService removed)
 │   ├── types/               # Tipos TypeScript
 │   ├── App.tsx              # Componente principal
 │   └── main.tsx             # Punto de entrada

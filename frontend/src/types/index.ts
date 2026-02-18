@@ -14,7 +14,6 @@ export interface Pet {
   peso: string;
   fecha_nacimiento: string;
   cliente_id: number;
-  imagen_url: string;
 }
 
 export interface MedicalRecord {

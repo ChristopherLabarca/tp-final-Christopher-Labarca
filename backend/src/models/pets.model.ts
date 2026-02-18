@@ -7,7 +7,6 @@ export interface IPet extends Document {
   peso: number;
   fecha_nacimiento: Date;
   ownerId: string;
-  imagen_url?: string;
   microchip?: string;
   createdAt: Date;
   updatedAt: Date;
@@ -43,10 +42,6 @@ const petSchema = new Schema<IPet>(
     ownerId: {
       type: String,
       required: [true, 'El ID del propietario es requerido'],
-    },
-    imagen_url: {
-      type: String,
-      default: 'https://via.placeholder.com/200?text=Mascota',
     },
     microchip: {
       type: String,

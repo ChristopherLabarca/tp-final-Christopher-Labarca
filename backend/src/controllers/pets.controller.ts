@@ -2,7 +2,6 @@ import { Request, Response, NextFunction } from 'express';
 import { validationResult } from 'express-validator';
 import Pet from '../models/pets.model';
 import { AppError } from '../types/appError';
-import { getImageForBreed } from '../services/pets.service';
 
 
 export const getAllPets = async (req: Request, res: Response, next: NextFunction) => {
@@ -43,13 +42,7 @@ export const createPet = async (req: Request, res: Response, next: NextFunction)
       return next(new AppError(errorMessages, 400));
     }
 
-    // If no image provided or is placeholder, fetch a real breed image
-    let petData = { ...req.body };
-    if (!petData.imagen_url || petData.imagen_url === 'https://via.placeholder.com/200?text=Mascota') {
-      petData.imagen_url = await getImageForBreed(petData.especie, petData.raza);
-    }
-
-    const pet = new Pet(petData);
+    const pet = new Pet({ ...req.body });
     await pet.save();
     res.status(201).json(pet);
   } catch (err) {
@@ -65,13 +58,7 @@ export const updatePet = async (req: Request, res: Response, next: NextFunction)
       return next(new AppError(errorMessages, 400));
     }
 
-    // If no image provided or is placeholder, fetch a real breed image
-    let updateData = { ...req.body };
-    if (!updateData.imagen_url || updateData.imagen_url === 'https://via.placeholder.com/200?text=Mascota') {
-      updateData.imagen_url = await getImageForBreed(updateData.especie, updateData.raza);
-    }
-
-    const pet = await Pet.findByIdAndUpdate(req.params.id, updateData, {
+    const pet = await Pet.findByIdAndUpdate(req.params.id, { ...req.body }, {
       new: true,
       runValidators: true,
     });

@@ -31,10 +31,6 @@ const petSchema = new mongoose_1.Schema({
         type: String,
         required: [true, 'El ID del propietario es requerido'],
     },
-    imagen_url: {
-        type: String,
-        default: 'https://via.placeholder.com/200?text=Mascota',
-    },
     microchip: {
         type: String,
         sparse: true,

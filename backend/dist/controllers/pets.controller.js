@@ -7,7 +7,7 @@ exports.deletePet = exports.updatePet = exports.createPet = exports.getPetsByOwn
 const express_validator_1 = require("express-validator");
 const pets_model_1 = __importDefault(require("../models/pets.model"));
 const appError_1 = require("../types/appError");
-const pets_service_1 = require("../services/pets.service");
+// image generation removed
 const getAllPets = async (req, res, next) => {
     try {
         const pets = await pets_model_1.default.find();
@@ -48,12 +48,7 @@ const createPet = async (req, res, next) => {
             const errorMessages = errors.array().map(err => err.msg).join(', ');
             return next(new appError_1.AppError(errorMessages, 400));
         }
-        // If no image provided or is placeholder, fetch a real breed image
-        let petData = { ...req.body };
-        if (!petData.imagen_url || petData.imagen_url === 'https://via.placeholder.com/200?text=Mascota') {
-            petData.imagen_url = await (0, pets_service_1.getImageForBreed)(petData.especie, petData.raza);
-        }
-        const pet = new pets_model_1.default(petData);
+        const pet = new pets_model_1.default(Object.assign({}, req.body));
         await pet.save();
         res.status(201).json(pet);
     }
@@ -69,12 +64,7 @@ const updatePet = async (req, res, next) => {
             const errorMessages = errors.array().map(err => err.msg).join(', ');
             return next(new appError_1.AppError(errorMessages, 400));
         }
-        // If no image provided or is placeholder, fetch a real breed image
-        let updateData = { ...req.body };
-        if (!updateData.imagen_url || updateData.imagen_url === 'https://via.placeholder.com/200?text=Mascota') {
-            updateData.imagen_url = await (0, pets_service_1.getImageForBreed)(updateData.especie, updateData.raza);
-        }
-        const pet = await pets_model_1.default.findByIdAndUpdate(req.params.id, updateData, {
+        const pet = await pets_model_1.default.findByIdAndUpdate(req.params.id, Object.assign({}, req.body), {
             new: true,
             runValidators: true,
         });
