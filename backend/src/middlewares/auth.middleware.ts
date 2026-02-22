@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import { JwtPayload, UserRole } from '../types/auth';
+import { extractBearerToken } from '../utils/token.utils';
 
 const JWT_SECRET = process.env.JWT_SECRET as string;
 
@@ -23,9 +24,7 @@ export const authenticate = (
   res: Response,
   next: NextFunction,
 ) => {
-  const token = req.headers.authorization?.split(' ')[1]; // Bearer <token>
-
-  console.log('Token recibido en authenticate:', token);
+  const token = extractBearerToken(req);
 
   if (!token) {
     return res.status(401).json({ message: 'No token provided' });

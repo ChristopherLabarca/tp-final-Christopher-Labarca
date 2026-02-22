@@ -54,11 +54,6 @@ export const getById = async (req: Request, res: Response) => {
 export const create = async (req: Request, res: Response) => {
   try {
     const categoryData: CreateCategoryDTO = req.body;
-
-    console.log('categoryData', categoryData);
-
-    console.log('Datos recibidos para crear categoría:', categoryData);
-
     const newCategory = await categoriesService.createCategory(categoryData);
     return res.status(201).json(newCategory);
   } catch (error) {

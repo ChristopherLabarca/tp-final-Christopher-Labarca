@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-import { validationResult } from 'express-validator';
 import Pet from '../models/pets.model';
 import { AppError } from '../types/appError';
 
@@ -36,12 +35,6 @@ export const getPetsByOwnerId = async (req: Request, res: Response, next: NextFu
 
 export const createPet = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      const errorMessages = errors.array().map(err => err.msg).join(', ');
-      return next(new AppError(errorMessages, 400));
-    }
-
     const pet = new Pet({ ...req.body });
     await pet.save();
     res.status(201).json(pet);
@@ -52,12 +45,6 @@ export const createPet = async (req: Request, res: Response, next: NextFunction)
 
 export const updatePet = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      const errorMessages = errors.array().map(err => err.msg).join(', ');
-      return next(new AppError(errorMessages, 400));
-    }
-
     const pet = await Pet.findByIdAndUpdate(req.params.id, { ...req.body }, {
       new: true,
       runValidators: true,

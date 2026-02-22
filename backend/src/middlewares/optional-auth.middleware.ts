@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import { JwtPayload } from '../types/auth';
+import { extractBearerToken } from '../utils/token.utils';
 
 const JWT_SECRET = process.env.JWT_SECRET as string;
 
@@ -19,7 +20,7 @@ export const optionalAuth = (
   res: Response,
   next: NextFunction,
 ) => {
-  const token = req.headers.authorization?.split(' ')[1]; // Bearer <token>
+  const token = extractBearerToken(req);
 
   if (!token) {
     // No token provided, pero continuamos sin autenticación

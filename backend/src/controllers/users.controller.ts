@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-import { validationResult } from 'express-validator';
 import { User } from '../models/users.model';
 import { AppError } from '../types/appError';
 import bcrypt from 'bcrypt';
@@ -28,12 +27,6 @@ export const getUserById = async (req: Request, res: Response, next: NextFunctio
 
 export const createUser = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      const errorMessages = errors.array().map(err => err.msg).join(', ');
-      return next(new AppError(errorMessages, 400));
-    }
-
     const { username, email, password, role } = req.body;
 
     // Check for duplicates
@@ -62,12 +55,6 @@ export const createUser = async (req: Request, res: Response, next: NextFunction
 
 export const updateUser = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      const errorMessages = errors.array().map(err => err.msg).join(', ');
-      return next(new AppError(errorMessages, 400));
-    }
-
     const { username, email, role } = req.body;
     const userId = req.params.id;
 

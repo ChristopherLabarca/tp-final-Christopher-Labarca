@@ -1,5 +1,4 @@
-import { IProduct } from '../models/products.model';
-import { Product } from '../models/products.model';
+import { IProduct, Product } from '../models/products.model';
 
 // CRUD
 

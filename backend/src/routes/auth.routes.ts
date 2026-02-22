@@ -5,6 +5,7 @@ import {
   loginValidator,
 } from '../validators/auth.validator';
 import { authenticate } from '../middlewares/auth.middleware';
+import validateDto from '../middlewares/dto.middleware';
 // import rateLimit from 'express-rate-limit';
 
 const router = Router();
@@ -16,13 +17,13 @@ const router = Router();
 //   message: 'Demasiados intentos, inténtalo de nuevo más tarde',
 // });
 
-// router.post('/register', authLimiter, registerValidator, register);
-// router.post('/login', authLimiter, loginValidator, login);
+// router.post('/register', authLimiter, registerValidator, validateDto, register);
+// router.post('/login', authLimiter, loginValidator, validateDto, login);
 
-router.post('/register', registerValidator, register);
-router.post('/login', loginValidator, login);
+router.post('/register', registerValidator, validateDto, register);
+router.post('/login', loginValidator, validateDto, login);
 router.post('/logout', authenticate, logout);
 router.get('/me', authenticate, getCurrentUser);
-router.patch('/password', authenticate, updatePassword);
+router.patch('/password', authenticate, validateDto, updatePassword);
 
 export default router;

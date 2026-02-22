@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import * as authService from '../services/auth.service';
-import { validationResult } from 'express-validator';
 
 /**
  * Controller to register a new user.
@@ -11,15 +10,7 @@ import { validationResult } from 'express-validator';
  */
 export const register = async (req: Request, res: Response) => {
   try {
-    // Verificar errores de validación
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-
     const { username, email, password } = req.body;
-
-    console.log('Registering user:', username, email, password);
 
     await authService.register(username, email, password);
 
@@ -29,7 +20,7 @@ export const register = async (req: Request, res: Response) => {
       return res.status(409).json({ error: 'El usuario o email ya existe' });
     }
 
-    console.log('Error during registration:', error);
+    console.error('Error during registration:', error);
     return res.status(500).json({ error: 'Error al registrar el usuario' });
   }
 };
@@ -43,12 +34,6 @@ export const register = async (req: Request, res: Response) => {
  */
 export const login = async (req: Request, res: Response) => {
   try {
-    // Verificar errores de validación
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-
     const { email, password } = req.body;
     const response = await authService.login(email, password);
 
@@ -108,11 +93,6 @@ export const getCurrentUser = async (req: Request, res: Response) => {
  */
 export const updatePassword = async (req: Request, res: Response) => {
   try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-
     const userId = (req as any).user?.id;
     const { currentPassword, newPassword } = req.body;
 

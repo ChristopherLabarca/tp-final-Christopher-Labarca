@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-import { validationResult } from 'express-validator';
 import MedicalRecord from '../models/medical-records.model';
 import { AppError } from '../types/appError';
 
@@ -35,12 +34,6 @@ export const getMedicalRecordsByPetId = async (req: Request, res: Response, next
 
 export const createMedicalRecord = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      const errorMessages = errors.array().map(err => err.msg).join(', ');
-      return next(new AppError(errorMessages, 400));
-    }
-
     const record = new MedicalRecord(req.body);
     await record.save();
     res.status(201).json(record);
@@ -51,12 +44,6 @@ export const createMedicalRecord = async (req: Request, res: Response, next: Nex
 
 export const updateMedicalRecord = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      const errorMessages = errors.array().map(err => err.msg).join(', ');
-      return next(new AppError(errorMessages, 400));
-    }
-
     const record = await MedicalRecord.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
